@@ -1,61 +1,55 @@
-Paper_id,Passive_vs_active,Explanation,Global_vs_local
-craven1996etsro,2,1,1
-krishnan1999edtft,2,1,1
-boz2002edtft,2,1,1
-johansson2009edtuo,2,1,1
-craven1994usaqt,2,1,1
-johansson2003reftn,2,1,1
-zhou2003esrft,2,1,1
-augasta2012retnn,2,1,1
-lou2013aimwp,2,3,1
-henelius2014apitb,2,3,1
-krishnan2017pmlef,2,1,1
-zien2009tfirm,2,3,1
-vidovic2016fimfn-1,2,3,1
-vidovic2016fimfn-2,2,3,3
-xu2015saatn,2,3,3
-fong2017ieobb,2,3,3
-zhou2016ldffd,2,3,3
-selvaraju2016wdyst,2,3,3
-simonian2013,2,3,3
-bach2015,2,3,3
-sturm2016,2,3,3
-montavon2017,2,3,3
-shrikumar2017,2,3,3
-landecker2013,2,3,3
-zintgraf2017,2,3,3
-bojarski2016,2,3,3
-bojarski2016,2,3,3
-lei2016,2,3,3
-strumbelj2010,2,3,3
-ribeiro2016,2,3,3
-turner2016,2,1,3
-ribeiro2018,2,1,3
-singh2016,2,1,3
-guidotti2018,2,1,3
-haufe2014,2,3,3
-olden2002,2,3,1
-baehrens2010,2,3,3
-datta2016-1,2,3,1
-datta2016-2,2,3,2
-datta2016-3,2,3,3
-sundararajan2017,2,3,2.5
-cortez2011,2,3,3
-hooker2004,2,5,2
-goldstein2015,2,5,2
-krause2016,2,5,2
-adler2016,2,5,2
-adebayo2016,2,5,2
-yosinski2015,2,2,1
-shwartz2017,2,2,1
-zeiler2014,2,2,1
-springenberg2014,2,2,1
-nguyen2016,2,2,1
-mahendran2016,2,2,1
-radford2017,2,2,1
-thiagarajan2016,2,1,1
-wu2018bstro,1,1,1
-zhang2018icnn,1,2,1
-li2019dlfcb,1,4,1
-koh2017ubbpv,2,4,3
-yeh2018rpsfe,2,4,3
+Paper_id,Passive_vs_active,Explanation,Global_vs_local,Paper_title
+craven1996etsro,2,1,1,Extracting Tree-Structured Representations of Trained Networks
+krishnan1999edtft,2,1,1,Extracting decision trees from trained neural networks
+boz2002edtft,2,1,1,Extracting Decision Trees from Trained Neural Networks
+johansson2009edtuo,2,1,1,Evolving decision trees using oracle guides
+craven1994usaqt,2,1,1,Using sampling and queries to extract rules from trained neural networks
+johansson2003reftn,2,1,1,Rule extraction from trained neural networks using genetic programming
+zhou2003esrft,2,1,1,Extracting symbolic rules from trained neural network ensembles
+augasta2012retnn,2,1,1,Reverse engineering the neural networks for rule extraction in classification problems
+lou2013aimwp,2,3,1,Accurate intelligible models with pairwise interactions
+henelius2014apitb,2,3,1,A peek into the black box: exploring classifiers by randomization
+krishnan2017pmlef,2,1,1,Palm: Machine learning explanations for iterative debugging
+zien2009tfirm,2,3,1,The feature importance ranking measure
+vidovic2016fimfn-1,2,3,1,Feature importance measure for non-linear learning algorithms
+vidovic2016fimfn-2,2,3,3,Feature importance measure for non-linear learning algorithms
+xu2015saatn,2,3,3,Show attend and tell: Neural image caption generation with visual attention
+fong2017ieobb,2,3,3,Interpretable explanations of black boxes by meaningful perturbation
+zhou2016ldffd,2,3,3,Learning deep features for discriminative localization
+selvaraju2017gcvef,2,3,3,Grad-cam: Visual explanations from deep networks via gradient-based localization
+simonyan2013dicnv,2,3,3,Deep inside convolutional networks: Visualising image classification models and saliency maps
+bach2015opwef,2,3,3,On pixel-wise explanations for non-linear classifier decisions by layer-wise relevance propagation
+sturm2016idnnf,2,3,3,Interpretable deep neural networks for single-trial EEG classification
+montavon2017encdw,2,3,3,Explaining nonlinear classification decisions with deep taylor decomposition
+shrikumar2017liftp,2,3,3,Learning Important Features Through Propagating Activation Differences
+landecker2013idcoh,2,3,3,Interpreting individual classifications of hierarchical networks
+zintgraf2017vdnnd,2,3,3,Visualizing deep neural network decisions: Prediction difference analysis
+bojarski2016vvcfa,2,3,3,Visualbackprop: visualizing cnns for autonomous driving
+lei2016rnp,2,3,3,Rationalizing neural predictions
+strumbelj2010aeeoi,2,3,3,An efficient explanation of individual classifications using game theory
+ribeiro2016wsity,2,3,3,Why should i trust you?: Explaining the predictions of any classifier
+turner2016ames,2,1,3,A model explanation system
+ribeiro2018ahpma,2,1,3,Anchors: High-precision model-agnostic explanations
+singh2016pabbe,2,1,3,Programs as black-box explanations
+guidotti2018lrbeo,2,1,3,Local rule-based explanations of black box decision systems
+haufe2014otiow,2,3,3,On the interpretation of weight vectors of linear models in multivariate neuroimaging
+olden2002itbba,2,3,1,Illuminating the ``black box'': a randomization approach for understanding variable contributions in artificial neural networks
+baehrens2010hteic,2,3,3,How to explain individual classification decisions
+datta2016atvqi-1,2,3,1,Algorithmic transparency via quantitative input influence: Theory and experiments with learning systems
+datta2016atvqi-2,2,3,2,Algorithmic transparency via quantitative input influence: Theory and experiments with learning systems
+datta2016atvqi-3,2,3,3,Algorithmic transparency via quantitative input influence: Theory and experiments with learning systems
+sundararajan2017aafdn,2,3,2.5,Axiomatic attribution for deep networks
+cortez2011obbdm,2,3,3,Opening black box data mining models using sensitivity analysis
+hooker2004dasib,2,5,2,Discovering additive structure in black box functions
+goldstein2015pitbb,2,5,2,Peeking inside the black box: Visualizing statistical learning with plots of individual conditional expectation
+krause2016iwpvi,2,5,2,Interacting with predictions: Visual inspection of black-box machine learning models
+adler2018abbmf,2,5,2,Auditing black-box models for indirect influence
+adebayo2016iofpf,2,5,2,Iterative orthogonal feature projection for diagnosing bias in black-box models
+yosinski2015unntd,2,2,1,Understanding Neural Networks Through Deep Visualization
+shwartz2017otbbo,2,2,1,Opening the black box of deep neural networks via information
+zeiler2014vaucn,2,2,1,Visualizing and understanding convolutional networks
+springenberg2014sfsta,2,2,1,Striving for simplicity: The all convolutional net
+nguyen2016stpif,2,2,1,Synthesizing the preferred inputs for neurons in neural networks via deep generator networks
+mahendran2015udirb,2,2,1,Understanding deep image representations by inverting them
+radford2017ltgra,2,2,1,Learning to generate reviews and discovering sentiment
+thiagarajan2016tpidn,2,1,1,TreeView: Peeking into deep neural networks via feature-space partitioning
