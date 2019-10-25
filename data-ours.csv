@@ -1,0 +1,16 @@
+Paper_id,Passive_vs_active,Explanation,Global_vs_local,Paper_title
+wu2018bstro,1,1,1,Beyond Sparsity: Tree Regularization of Deep Models for Interpretability
+zhang2018icnn,1,2,1,Interpretable Convolutional Neural Networks
+li2019dlfcb,1,4,1,Deep Learning for Case-Based Reasoning through Prototypes: A Neural Network that Explains Its Predictions
+koh2017ubbpv,2,4,3,Understanding black-box predictions via influence functions
+yeh2018rpsfe,2,4,3,Representer Point Selection for Explaining Deep Neural Networks
+odajima2008grgfd,2,1,1,Greedy rule generation from discrete data and its use in neural network rule extraction
+nayak2009grwpt,2,1,1,Generating rules with predicates terms and variables from the pruned neural networks
+castro2002ioann,2,1,1,Interpretation of artificial neural networks by means of fuzzy rules
+dhurandhar2018ebotm,2,1,3,Explanations based on the Missing: Towards Contrastive Explanations with Pertinent Negatives
+wang2018vdnnb,2,2,1,Visualizing deep neural network by alternately image blurring and deblurring
+fong2018nqaeh,2,2,1,Net2Vec: Quantifying and Explaining How Concepts Are Encoded by Filters in Deep Neural Networks
+plumb2018masle,2,3,3,Model agnostic supervised local explanations
+lundberg2017auati,2,3,1,A Unified Approach to Interpreting Model Predictions
+chen2018lteai,2,3,3,Learning to Explain: An Information-Theoretic Perspective on Model Interpretation
+kim2018ibfaq,2,3,3,Interpretability Beyond Feature Attribution: Quantitative Testing with Concept Activation Vectors (TCAV)
