@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="scripts/plotly-1.50.0.min.js"></script>
+</head>
+
+<body>
+    <div id="canvas" style="width: 1536px; margin: 0 auto;"></div>
+    <script>
+        function unpack(rows, key) {
+            return rows.map(function (row) { return row[key]; });
+        }
+
+        function hover_txt(rows, k1, k2) {
+            return rows.map(function (row) { return '[' + row[k1] + '] ' + row[k2]; });
+        }
+
+        function pertube(data) {
+            return data.map(x => Number(x) + (Math.random() - 0.5) / 5);
+        }
+
+        // https://raw.githubusercontent.com/yzhang-gh/tmp-data/master/data.csv
+        // http://localhost:5500/data.csv
+        Plotly.d3.csv('http://localhost:5500/data.csv', function (err, rows) {
+
+            Plotly.d3.csv('http://localhost:5500/data-ours.csv', function (err, rows_ours) {
+
+                var trace1 = {
+                    name: 'Mentioned in guidotti2018',
+                    x: pertube(unpack(rows, 'Explanation')),
+                    y: pertube(unpack(rows, 'Global_vs_local')),
+                    z: unpack(rows, 'Passive_vs_active'),
+                    text: hover_txt(rows, 'Paper_id', 'Paper_title'),
+                    hoverinfo: 'text',
+                    mode: 'markers',
+                    marker: {
+                        color: 'rgba(31, 119, 180, 0.85)',
+                        size: 5,
+                    },
+                    type: 'scatter3d'
+                };
+
+                var trace2 = {
+                    name: 'Not mentioned in guidotti2018',
+                    x: pertube(unpack(rows_ours, 'Explanation')),
+                    y: pertube(unpack(rows_ours, 'Global_vs_local')),
+                    z: unpack(rows_ours, 'Passive_vs_active'),
+                    text: hover_txt(rows_ours, 'Paper_id', 'Paper_title'),
+                    hoverinfo: 'text',
+                    mode: 'markers',
+                    marker: {
+                        color: 'rgba(31, 119, 180, 0.85)',
+                        size: 5,
+                        line: {
+                            color: 'rgb(255, 50, 14)',
+                            width: 2
+                        }
+                    },
+                    type: 'scatter3d'
+                };
+
+                var origin = {
+                    x: [0],
+                    y: [0],
+                    z: [0],
+                    mode: 'markers',
+                    marker: {
+                        color: 'rgb(50, 50, 50)',
+                        size: 3,
+                    },
+                    showlegend: false,
+                    type: 'scatter3d'
+                }
+
+                var data = [trace1, trace2, origin];
+                var layout = {
+                    width: 1536,
+                    height: 864,
+                    font: {
+                        family: 'CMU Sans Serif'
+                    },
+                    hoverlabel: {
+                        font: {
+                            family: 'CMU Sans Serif'
+                        }
+                    },
+                    margin: {
+                        l: 0,
+                        r: 0,
+                        b: 0,
+                        t: 0
+                    },
+                    scene: {
+                        aspectmode: 'manual',
+                        aspectratio: { x: 0.9, y: 1, z: 0.7 },
+                        xaxis: {
+                            tickvals: [1, 2, 3, 4],
+                            ticktext: ['Logic rules', 'Hidden semantics', 'Attribution', 'by Example'].reverse(),
+                            range: [0, 4.5],
+                            zerolinewidth: 3,
+                            gridcolor: 'rgb(100, 100, 100)',
+                            spikecolor: 'rgb(200, 200, 200)',
+                            spikesides: false,
+                            title: 'Type of explanations',
+                        },
+                        yaxis: {
+                            tickvals: [1, 2, 3],
+                            ticktext: ['Global', '', 'Local'].reverse(),
+                            range: [0, 3.5],
+                            zerolinewidth: 3,
+                            gridcolor: 'rgb(100, 100, 100)',
+                            spikecolor: 'rgb(200, 200, 200)',
+                            spikesides: false,
+                            title: 'Global vs. Local'
+                        },
+                        zaxis: {
+                            tickvals: [1, 2],
+                            ticktext: ['Passive', 'Active'],
+                            range: [0, 2.5],
+                            zerolinewidth: 3,
+                            gridcolor: 'rgb(100, 100, 100)',
+                            spikecolor: 'rgb(200, 200, 200)',
+                            spikesides: false,
+                            title: 'Passive vs. Active',
+                        }
+                    },
+                    title: 'Paper Space'
+                };
+                Plotly.newPlot('canvas', data, layout, { responsive: true, displayModeBar: false });
+            });
+        });
+    </script>
+</body>
+
+</html>
