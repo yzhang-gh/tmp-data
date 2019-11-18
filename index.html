@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>The Interpretability Paper Space</title>
     <script src="scripts/plotly-1.50.0.min.js"></script>
 </head>
 
@@ -26,9 +26,9 @@
 
         // https://raw.githubusercontent.com/yzhang-gh/tmp-data/master/data.csv
         // http://localhost:5500/data.csv
-        Plotly.d3.csv('http://localhost:5500/data.csv', function (err, rows) {
+        Plotly.d3.csv('https://raw.githubusercontent.com/yzhang-gh/tmp-data/master/data.csv', function (err, rows) {
 
-            Plotly.d3.csv('http://localhost:5500/data-ours.csv', function (err, rows_ours) {
+            Plotly.d3.csv('https://raw.githubusercontent.com/yzhang-gh/tmp-data/master/data-ours.csv', function (err, rows_ours) {
 
                 var trace1 = {
                     name: 'Mentioned in guidotti2018',
