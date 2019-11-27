@@ -21,7 +21,7 @@
         }
 
         function pertube(data) {
-            return data.map(x => Number(x) + (Math.random() - 0.5) / 5);
+            return data.map(x => Number(x) + (Math.random() - 0.5) / 7);
         }
 
         // https://raw.githubusercontent.com/yzhang-gh/tmp-data/master/data.csv
@@ -73,11 +73,40 @@
                         color: 'rgb(50, 50, 50)',
                         size: 3,
                     },
+                    hoverinfo: 'none',
                     showlegend: false,
                     type: 'scatter3d'
                 }
 
-                var data = [trace1, trace2, origin];
+                var crosspoints = {
+                    x: [1, 2, 4, 2, 4, 1, 2, 3, 4],
+                    y: [1, 1, 1, 2, 2, 3, 3, 3, 3],
+                    z: [1, 1, 1, 1, 1, 2, 1, 2, 2],
+                    mode: 'markers',
+                    marker: {
+                        color: 'rgb(150, 150, 150)',
+                        size: 3,
+                    },
+                    hoverinfo: 'none',
+                    showlegend: false,
+                    type: 'scatter3d'
+                }
+
+                var lines = {
+                    x: [1, 1, null, 2, 2, null, 4, 4, null, 2, 2, null, 4, 4, null, 1, 1, null, 2, 2, null, 3, 3, null, 4, 4],
+                    y: [1, 1, null, 1, 1, null, 1, 1, null, 2, 2, null, 2, 2, null, 3, 3, null, 3, 3, null, 3, 3, null, 3, 3],
+                    z: [0, 1, null, 0, 1, null, 0, 1, null, 0, 1, null, 0, 1, null, 0, 2, null, 0, 1, null, 0, 2, null, 0, 2],
+                    mode: 'lines',
+                    line: {
+                        color: 'rgb(100, 100, 100)',
+                        dash: 'dot'
+                    },
+                    hoverinfo: 'none',
+                    showlegend: false,
+                    type: 'scatter3d'
+                }
+
+                var data = [trace1, trace2, origin, crosspoints, lines];
                 var layout = {
                     width: 1536,
                     height: 864,
