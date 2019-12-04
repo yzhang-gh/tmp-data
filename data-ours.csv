@@ -11,6 +11,6 @@ dhurandhar2018ebotm,1,4,1,Explanations based on the Missing: Towards Contrastive
 wang2018vdnnb,1,3,3,Visualizing deep neural network by alternately image blurring and deblurring
 fong2018nqaeh,1,3,3,Net2Vec: Quantifying and Explaining How Concepts Are Encoded by Filters in Deep Neural Networks
 plumb2018masle,1,2,1,Model agnostic supervised local explanations
-lundberg2017auati,1,2,3,A Unified Approach to Interpreting Model Predictions
+lundberg2017auati,1,2,1,A Unified Approach to Interpreting Model Predictions
 chen2018lteai,1,2,1,Learning to Explain: An Information-Theoretic Perspective on Model Interpretation
 kim2018ibfaq,1,2,1,Interpretability Beyond Feature Attribution: Quantitative Testing with Concept Activation Vectors (TCAV)
