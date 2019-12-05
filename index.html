@@ -11,7 +11,7 @@
 
 <body>
     <p id="loading" style="text-align: center;">Loading... (0/2)</p>
-    <div id="canvas" style="width: 1536px; margin: 0 auto;"></div>
+    <div id="canvas" style="width: 1280px; margin: calc(50vh - 385px) auto 0;"></div>
     <script>
         function unpack(rows, key) {
             return rows.map(function (row) { return row[key]; });
@@ -114,8 +114,8 @@
 
                 var data = [trace1, trace2, origin, crosspoints, lines];
                 var layout = {
-                    width: 1536,
-                    height: 864,
+                    width: 1280,
+                    height: 768,
                     font: {
                         family: 'CMU Sans Serif'
                     },
