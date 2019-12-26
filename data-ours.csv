@@ -1,8 +1,8 @@
 Paper_id,Passive_vs_active,Explanation,Global_vs_local,Paper_title
 wu2018bstro,2,4,3,Beyond Sparsity: Tree Regularization of Deep Models for Interpretability
-chen2019tlltd,2,4,3,This looks like that: deep learning for interpretable image recognition
 zhang2018icnn,2,3,3,Interpretable Convolutional Neural Networks
 li2019dlfcb,2,1,3,Deep Learning for Case-Based Reasoning through Prototypes: A Neural Network that Explains Its Predictions
+chen2019tlltd,2,1,3,This looks like that: deep learning for interpretable image recognition
 koh2017ubbpv,1,1,1,Understanding black-box predictions via influence functions
 yeh2018rpsfe,1,1,1,Representer Point Selection for Explaining Deep Neural Networks
 wang2019gfolc,1,4,2,Gaining Free or Low-Cost Interpretability with Interpretable Partial Substitute
