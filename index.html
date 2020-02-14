@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Interpretability Paper Space</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <script src="scripts/plotly-1.50.0.min.js"></script>
 </head>
 
@@ -25,9 +26,10 @@
             return data.map(x => Number(x) + (Math.random() - 0.5) / 7);
         }
 
-        // https://raw.githubusercontent.com/yzhang-gh/tmp-data/master/data.csv
-        // http://localhost:5500/data.csv
-        Plotly.d3.csv('https://raw.githubusercontent.com/yzhang-gh/tmp-data/master/data.csv', function (err, rows) {
+        const local = false;
+        const host = local ? 'http://localhost:5500/' : 'https://raw.githubusercontent.com/yzhang-gh/tmp-data/master/';
+
+        Plotly.d3.csv(host + 'data.csv', function (err, rows) {
 
             if (err) {
                 document.getElementById('loading').innerHTML = 'Error connecting to GitHub';
@@ -36,7 +38,7 @@
 
             document.getElementById('loading').innerHTML = 'Loading... (1/2)';
 
-            Plotly.d3.csv('https://raw.githubusercontent.com/yzhang-gh/tmp-data/master/data-ours.csv', function (err, rows_ours) {
+            Plotly.d3.csv(host + 'data-ours.csv', function (err, rows_ours) {
 
                 if (err) {
                     document.getElementById('loading').innerHTML = 'Error connecting to GitHub';
@@ -127,12 +129,17 @@
                     width: 1280,
                     height: 768,
                     font: {
-                        family: 'CMU Sans Serif'
+                        family: "'Source Sans Pro', Calibri",
+                        size: 14,
                     },
                     hoverlabel: {
                         font: {
-                            family: 'CMU Sans Serif'
-                        }
+                            family: "'Source Sans Pro', Calibri",
+                            size: 15,
+                            color: '#111111',
+                        },
+                        bgcolor: '#BFE4FF',
+                        bordercolor: '#BFE4FF',
                     },
                     margin: {
                         l: 0,
@@ -151,7 +158,13 @@
                             gridcolor: 'rgb(100, 100, 100)',
                             spikecolor: 'rgb(200, 200, 200)',
                             spikesides: false,
-                            title: 'Type of explanations',
+                            title: {
+                                text: 'Type of explanations',
+                                font: {
+                                    size: 20,
+                                    color: '#111111',
+                                }
+                            },
                         },
                         yaxis: {
                             tickvals: [1, 2, 3],
@@ -161,7 +174,12 @@
                             gridcolor: 'rgb(100, 100, 100)',
                             spikecolor: 'rgb(200, 200, 200)',
                             spikesides: false,
-                            title: 'Global vs. Local'
+                            title: {
+                                text: 'Global vs. Local',
+                                font: {
+                                    size: 20,
+                                }
+                            },
                         },
                         zaxis: {
                             tickvals: [1, 2],
@@ -171,7 +189,12 @@
                             gridcolor: 'rgb(100, 100, 100)',
                             spikecolor: 'rgb(200, 200, 200)',
                             spikesides: false,
-                            title: 'Passive vs. Active',
+                            title: {
+                                text: 'Passive vs. Active',
+                                font: {
+                                    size: 20,
+                                }
+                            },
                         }
                     }
                 };
