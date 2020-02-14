@@ -26,7 +26,7 @@
             return data.map(x => Number(x) + (Math.random() - 0.5) / 7);
         }
 
-        const local = false;
+        const local = true;
         const host = local ? 'http://localhost:5500/' : 'https://raw.githubusercontent.com/yzhang-gh/tmp-data/master/';
 
         Plotly.d3.csv(host + 'data.csv', function (err, rows) {
@@ -47,16 +47,148 @@
 
                 document.getElementById('loading').innerHTML = 'Loading... (2/2)';
 
+                //// calc N
+                let counts = {};
+                rows.forEach(row => {
+                    const key = row['Explanation'] + row['Global_vs_local'] + row['Passive_vs_active'];
+                    if (counts[key] !== undefined) {
+                        counts[key] += 1;
+                    } else {
+                        counts[key] = 1;
+                    }
+                });
+                rows_ours.forEach(row => {
+                    const key = row['Explanation'] + row['Global_vs_local'] + row['Passive_vs_active'];
+                    if (counts[key] !== undefined) {
+                        counts[key] += 1;
+                    } else {
+                        counts[key] = 1;
+                    }
+                });
+
+                ////
+                let x_shifts = [];
+                let y_shifts = [];
+                let z_shifts = [];
+                let counts2 = {}; //// pointer: small n
+                let counts3 = {}; //// for scaling
+                const phi = (Math.sqrt(5) - 1) / 2;
+                rows.forEach(row => {
+                    const key = row['Explanation'] + row['Global_vs_local'] + row['Passive_vs_active'];
+                    const N = counts[key];
+
+                    if (N > 1) {
+                        if (counts2[key] !== undefined) {
+                            counts2[key] += 1;
+                        } else {
+                            counts2[key] = 1;
+                        }
+                        const n = counts2[key];
+
+                        const z_shift = (2 * n - 1) / N - 1;
+                        const x_shift = Math.sqrt(1 - z_shift ** 2) * Math.cos(2 * Math.PI * n * phi);
+                        const y_shift = Math.sqrt(1 - z_shift ** 2) * Math.sin(2 * Math.PI * n * phi);
+
+                        x_shifts.push(x_shift);
+                        y_shifts.push(y_shift);
+                        z_shifts.push(z_shift);
+
+                        if (counts3[key] !== undefined) {
+                            if (typeof counts3[key] !== "number") {
+                                const prePoint = counts3[key];
+                                counts3[key] = Math.sqrt((x_shift - prePoint[0]) ** 2 + (y_shift - prePoint[1]) ** 2 + (z_shift - prePoint[2]) ** 2);
+                            }
+                        } else {
+                            counts3[key] = [x_shift, y_shift, z_shift];
+                        }
+                    } else {
+                        x_shifts.push(0);
+                        y_shifts.push(0);
+                        z_shifts.push(0);
+                        counts3[key] = 1; //// any non-zero number
+                    }
+                });
+
+                ////
+                let x_ours_shifts = [];
+                let y_ours_shifts = [];
+                let z_ours_shifts = [];
+                rows_ours.forEach(row => {
+                    const key = row['Explanation'] + row['Global_vs_local'] + row['Passive_vs_active'];
+                    const N = counts[key];
+
+                    if (N > 1) {
+                        if (counts2[key] !== undefined) {
+                            counts2[key] += 1;
+                        } else {
+                            counts2[key] = 1;
+                        }
+                        const n = counts2[key];
+
+                        const z_ours_shift = (2 * n - 1) / N - 1;
+                        const x_ours_shift = Math.sqrt(1 - z_ours_shift ** 2) * Math.cos(2 * Math.PI * n * phi);
+                        const y_ours_shift = Math.sqrt(1 - z_ours_shift ** 2) * Math.sin(2 * Math.PI * n * phi);
+
+                        x_ours_shifts.push(x_ours_shift);
+                        y_ours_shifts.push(y_ours_shift);
+                        z_ours_shifts.push(z_ours_shift);
+
+                        if (counts3[key] !== undefined) {
+                            if (typeof counts3[key] !== "number") {
+                                const prePoint = counts3[key];
+                                counts3[key] = Math.sqrt((x_ours_shift - prePoint[0]) ** 2 + (y_ours_shift - prePoint[1]) ** 2 + (z_ours_shift - prePoint[2]) ** 2);
+                            }
+                        } else {
+                            counts3[key] = [x_ours_shift, y_ours_shift, z_ours_shift];
+                        }
+                    } else {
+                        x_ours_shifts.push(0);
+                        y_ours_shifts.push(0);
+                        z_ours_shifts.push(0);
+                        counts3[key] = 1; //// any non-zero number
+                    }
+                });
+
+                let xs = [];
+                let ys = [];
+                let zs = [];
+                rows.forEach((row, i) => {
+                    const key = row['Explanation'] + row['Global_vs_local'] + row['Passive_vs_active'];
+
+                    let x = Number(row['Explanation']);
+                    let y = Number(row['Global_vs_local']);
+                    let z = Number(row['Passive_vs_active']);
+
+                    xs.push(x + x_shifts[i] / counts3[key] * 0.08);
+                    ys.push(y + y_shifts[i] / counts3[key] * 0.08);
+                    zs.push(z + z_shifts[i] / counts3[key] * 0.08);
+                });
+
+                let x_ourss = [];
+                let y_ourss = [];
+                let z_ourss = [];
+                rows_ours.forEach((row, i) => {
+                    const key = row['Explanation'] + row['Global_vs_local'] + row['Passive_vs_active'];
+
+                    let x = Number(row['Explanation']);
+                    let y = Number(row['Global_vs_local']);
+                    let z = Number(row['Passive_vs_active']);
+
+                    x_ourss.push(x + x_ours_shifts[i] / counts3[key] * 0.08);
+                    y_ourss.push(y + y_ours_shifts[i] / counts3[key] * 0.08);
+                    z_ourss.push(z + z_ours_shifts[i] / counts3[key] * 0.08);
+                });
+
                 var trace1 = {
                     name: 'Mentioned in guidotti2018',
-                    x: pertube(unpack(rows, 'Explanation')),
-                    y: pertube(unpack(rows, 'Global_vs_local')),
-                    z: unpack(rows, 'Passive_vs_active'),
+                    x: xs,
+                    y: ys,
+                    z: zs,
                     text: hover_txt(rows, 'Paper_id', 'Paper_title'),
                     hoverinfo: 'text',
                     mode: 'markers',
                     marker: {
-                        color: 'rgba(31, 119, 180, 0.85)',
+                        color: 'rgba(31, 119, 180, 0.9)',
                         size: 5,
                     },
                     type: 'scatter3d'
@@ -64,19 +196,19 @@
 
                 var trace2 = {
                     name: 'Not mentioned in guidotti2018',
-                    x: pertube(unpack(rows_ours, 'Explanation')),
-                    y: pertube(unpack(rows_ours, 'Global_vs_local')),
-                    z: unpack(rows_ours, 'Passive_vs_active'),
+                    x: x_ourss,
+                    y: y_ourss,
+                    z: z_ourss,
                     text: hover_txt(rows_ours, 'Paper_id', 'Paper_title'),
                     hoverinfo: 'text',
                     mode: 'markers',
                     marker: {
-                        color: 'rgba(31, 119, 180, 0.85)',
+                        color: 'rgba(31, 119, 180, 0.9)',
                         size: 5,
-                        line: {
-                            color: 'rgb(255, 50, 14)',
-                            width: 2
-                        }
+                        // line: {
+                        //     color: 'rgb(255, 50, 14)',
+                        //     width: 2
+                        // }
                     },
                     type: 'scatter3d'
                 };
@@ -124,7 +256,7 @@
                     type: 'scatter3d'
                 }
 
-                var data = [trace1, trace2, origin, crosspoints, lines];
+                var data = [trace1, trace2, origin, lines];
                 var layout = {
                     width: 1280,
                     height: 768,
