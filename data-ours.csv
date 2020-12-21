@@ -1,22 +1,2 @@
 Paper_id,Passive_vs_active,Explanation,Global_vs_local,Paper_title
-wu2018bstro,2,4,3,Beyond Sparsity: Tree Regularization of Deep Models for Interpretability
-zhang2018icnn,2,3,3,Interpretable Convolutional Neural Networks
-li2019dlfcb,2,1,3,Deep Learning for Case-Based Reasoning through Prototypes: A Neural Network that Explains Its Predictions
-chen2019tlltd,2,1,3,This looks like that: deep learning for interpretable image recognition
-koh2017ubbpv,1,1,1,Understanding black-box predictions via influence functions
-yeh2018rpsfe,1,1,1,Representer Point Selection for Explaining Deep Neural Networks
-wang2019gfolc,1,4,2,Gaining Free or Low-Cost Interpretability with Interpretable Partial Substitute
-odajima2008grgfd,1,4,3,Greedy rule generation from discrete data and its use in neural network rule extraction
-nayak2009grwpt,1,4,3,Generating rules with predicates terms and variables from the pruned neural networks
-castro2002ioann,1,4,3,Interpretation of artificial neural networks by means of fuzzy rules
-dhurandhar2018ebotm,1,4,1,Explanations based on the Missing: Towards Contrastive Explanations with Pertinent Negatives
-wang2018vdnnb,1,3,3,Visualizing deep neural network by alternately image blurring and deblurring
-fong2018nqaeh,1,3,3,Net2Vec: Quantifying and Explaining How Concepts Are Encoded by Filters in Deep Neural Networks
-dalvi2019wiogo,1,3,3,What is one grain of sand in the desert? analyzing individual neurons in deep nlp models
-plumb2018masle,1,2,1,Model agnostic supervised local explanations
-lundberg2017auati,1,2,1,A Unified Approach to Interpreting Model Predictions
-chen2018lteai,1,2,1,Learning to Explain: An Information-Theoretic Perspective on Model Interpretation
-kim2018ibfaq,1,2,3,Interpretability Beyond Feature Attribution: Quantitative Testing with Concept Activation Vectors (TCAV)
-wang2019bamba,1,2,1,Bias Also Matters: Bias Attribution for Deep Neural Network Explanation
-ancona2019ednnw,1,2,1,Explaining Deep Neural Networks with a Polynomial Time Algorithm for Shapley Value Approximation
-goyal2019cve,1,2,1,Counterfactual Visual Explanations
+
