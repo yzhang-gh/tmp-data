@@ -66,3 +66,13 @@ kim2018ibfaq,1,2,3,Interpretability Beyond Feature Attribution: Quantitative Tes
 wang2019bamba,1,2,1,Bias Also Matters: Bias Attribution for Deep Neural Network Explanation
 ancona2019ednnw,1,2,1,Explaining Deep Neural Networks with a Polynomial Time Algorithm for Shapley Value Approximation
 goyal2019cve,1,2,1,Counterfactual Visual Explanations
+lapuschkin2019uchpa,1,2,3,Unmasking clever hans predictors and assessing what machines really learn
+wu2020rtrfi,2,4,2,Regional Tree Regularization for Interpretability in Deep Neural Networks
+pedapati2020lgtmc,1,4,3,Learning Global Transparent Models Consistent with Local Contrastive Explanations
+heskes2020csvec,1,2,1,Causal Shapley Values: Exploiting Causal Knowledge to Explain Individual Predictions of Complex Models
+wojtas2020firfd,2,2,3,Feature Importance Ranking for Deep Learning
+natesan2020mame-1,1,2,2,Model Agnostic Multilevel Explanations
+natesan2020mame-2,1,2,3,Model Agnostic Multilevel Explanations
+plumb2020rbbmf,2,2,1,Regularizing Black-box Models for Improved Interpretability
+weinberger2020ldapb,2,2,1,Learning Deep Attribution Priors Based On Prior Knowledge
+ghorbani2019tacbe,1,2,3,Towards automatic concept-based explanations
