@@ -33,7 +33,9 @@
 
 <body>
     <h1>Interpretability Paper Space</h1>
-    <p><input type="checkbox" id="hide-panes" onchange="onChange()"><label for="hide-panes">Hide colored panes (for better hover information)</label></p>
+    <p id="p-checkbox" style="visibility: hidden;">
+        <input type="checkbox" id="hide-panes" onchange="onChange()"><label for="hide-panes">Hide colored panes (for better hover information)</label>
+    </p>
     <p id="loading">Loading...</p>
     <div id="canvas"></div>
     <script>
@@ -321,6 +323,7 @@
             };
 
             document.getElementById('loading').remove();
+            document.getElementById('p-checkbox').style.visibility = 'visible';
 
             Plotly.newPlot('canvas', data, layout, { responsive: true, displayModeBar: false });
             document.getElementById('canvas').style.border = '1px solid #ccc';
